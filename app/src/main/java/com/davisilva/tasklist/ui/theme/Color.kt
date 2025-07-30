@@ -1,4 +1,4 @@
-package com.davisilva.todolist.ui.theme
+package com.davisilva.tasklist.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

@@ -1,4 +1,4 @@
-package com.davisilva.todolist
+package com.davisilva.tasklist
 
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package com.davisilva.todolist.ui.feature.components
+package com.davisilva.tasklist.ui.feature.tasklist.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Column
@@ -21,17 +21,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.davisilva.todolist.ui.feature.data.TodoItemActions
-import com.davisilva.todolist.ui.feature.data.TodoItemUiData
-import com.davisilva.todolist.ui.feature.data.todoItemActionsMock
-import com.davisilva.todolist.ui.feature.data.todoNotSelectedMock
-import com.davisilva.todolist.ui.feature.data.todoSelectedMock
-import com.davisilva.todolist.ui.theme.TodoListTheme
+import com.davisilva.tasklist.domain.entities.TaskModel
+import com.davisilva.tasklist.domain.entities.taskModelMockNotSelected
+import com.davisilva.tasklist.domain.entities.taskModelMockSelected
+import com.davisilva.tasklist.ui.feature.tasklist.data.TodoItemActions
+import com.davisilva.tasklist.ui.feature.tasklist.data.todoItemActionsMock
+import com.davisilva.tasklist.ui.theme.TaskListTheme
 
 @Composable
-fun TodoItemComponent(
+fun TaskItemComponent(
     modifier: Modifier = Modifier,
-    data: TodoItemUiData,
+    data: TaskModel,
     actions: TodoItemActions,
 ) {
     with(data) {
@@ -43,7 +43,9 @@ fun TodoItemComponent(
             border = BorderStroke(width = 1.dp, color = MaterialTheme.colorScheme.outline),
         ) {
             Row(
-                modifier = Modifier.padding(16.dp).fillMaxWidth(),
+                modifier = Modifier
+                    .padding(16.dp)
+                    .fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 Checkbox(checked = isSelected, onCheckedChange = actions.onCheckedChange)
@@ -64,12 +66,17 @@ fun TodoItemComponent(
 
 @Preview
 @Composable
-private fun TodoItemComponentPreview() {
-    TodoListTheme { TodoItemComponent(data = todoSelectedMock, actions = todoItemActionsMock) }
+private fun TaskItemSelectedComponentPreview() {
+    TaskListTheme { TaskItemComponent(data = taskModelMockSelected, actions = todoItemActionsMock) }
 }
 
 @Preview
 @Composable
-private fun TodoItemNotSelectedComponentPreview() {
-    TodoListTheme { TodoItemComponent(data = todoNotSelectedMock, actions = todoItemActionsMock) }
+private fun TaskItemNotSelectedComponentPreview() {
+    TaskListTheme {
+        TaskItemComponent(
+            data = taskModelMockNotSelected,
+            actions = todoItemActionsMock
+        )
+    }
 }

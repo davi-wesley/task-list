@@ -1,4 +1,4 @@
-package com.davisilva.todolist.ui.feature.data
+package com.davisilva.tasklist.ui.feature.tasklist.data
 
 data class TodoItemActions(
     val onCheckedChange: (Boolean) -> Unit,

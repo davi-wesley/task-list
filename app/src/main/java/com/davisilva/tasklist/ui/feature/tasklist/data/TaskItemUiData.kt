@@ -1,19 +1,19 @@
-package com.davisilva.todolist.ui.feature.data
+package com.davisilva.tasklist.ui.feature.tasklist.data
 
-data class TodoItemUiData(
+data class TaskItemUiData(
     val title: String,
     val description: String,
     val isSelected: Boolean
 )
 
 //Mocks
-var todoSelectedMock = TodoItemUiData(
+var taskSelectedMock = TaskItemUiData(
     title = "Todo selected",
     description = "Todo selected description",
     isSelected = true
 )
 
-var todoNotSelectedMock = TodoItemUiData(
+var taskNotSelectedMock = TaskItemUiData(
     title = "Todo not selected",
     description = "Todo not selected description",
     isSelected = false

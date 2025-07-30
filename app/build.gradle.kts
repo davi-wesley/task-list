@@ -4,11 +4,11 @@ plugins {
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.ksp)
     kotlin("kapt")
-
+    kotlin("plugin.serialization") version libs.versions.kotlin
 }
 
 android {
-    namespace = "com.davisilva.todolist"
+    namespace = "com.davisilva.tasklist"
     compileSdk = 36
 
     defaultConfig {
@@ -64,10 +64,11 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
 
+
     // Room
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
-
+    ksp(libs.room.compiler)
 
     // Navigation
     implementation(libs.navigation.compose)
@@ -82,6 +83,9 @@ dependencies {
     implementation(libs.koin.android)
     implementation(libs.koin.androidx.compose)
     implementation(libs.koin.android.compat)
+
+    // Kotlinx Serialization
+    implementation(libs.kotlinx.serialization.json)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
